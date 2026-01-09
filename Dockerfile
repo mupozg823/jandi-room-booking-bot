@@ -10,7 +10,9 @@ RUN npm ci --only=production
 
 # 소스 코드 복사
 COPY dist/ ./dist/
-COPY data/ ./data/ 2>/dev/null || mkdir -p ./data
+
+# 데이터 디렉토리 생성
+RUN mkdir -p ./data
 
 # 환경 변수 설정
 ENV NODE_ENV=production
